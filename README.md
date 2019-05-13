@@ -1,0 +1,2 @@
+# HustGSClassPaper
+华中科技大学研究生课程论文LaTeX模板
