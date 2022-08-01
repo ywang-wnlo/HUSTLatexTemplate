@@ -99,15 +99,15 @@
 
 
 %
-%	---	载入Class
+% 载入Class
 %
 \LoadClass[a4paper]{article}
-%页面基本设置
+% 页面基本设置
 \RequirePackage[AutoFakeBold=true,AutoFakeSlant=true]{xeCJK}[2017/08/08]
 \RequirePackage[zihao=-4,UTF8,heading=true\HGR@fontset]{ctex}[2016/12/27]
 
 %
-%	---	定义页边距
+% 定义页边距
 %
 \RequirePackage{geometry}
 \geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
@@ -116,87 +116,87 @@
 
 
 %
-%	---	定义字体
+% 定义字体
 %
-%用于设置非常用字体
+% 用于设置非常用字体
 \setmainfont{Times New Roman}
 \RequirePackage{fontspec}
-%论文封面使用华文中宋
+% 论文封面使用华文中宋
 \setCJKfamilyfont{hwzs}{STZhongsong}
 \newcommand{\huawenzhongsong}{\CJKfamily{hwzs}}
 \newfontfamily\hwzsAll{STZhongsong}[
 	BoldFont={STZhongsong},
 	BoldFeatures={FakeBold=4}
 ]
-%思源字体定义与使用
+% 思源字体定义与使用
 \HGR@noto
 
 %
-%	---	定义页眉页脚
+% 定义页眉页脚
 %
-%使用fancyhdr库
+% 使用fancyhdr库
 \RequirePackage{fancyhdr}
-%设置页眉样式
+% 设置页眉样式
 \newcommand{\headstyle}{
-	\fancyhead[C]{\huawenzhongsong \zihao{5} 华 \space 中 \space 科 \space 技 \space 大 \space 学 \space 毕 \space 业 \space 设 \space 计（论  \space 文）}
+	\fancyhead[C]{\huawenzhongsong \zihao{4} 华中科技大学研究生院}
 }
-%设置页脚样式
+% 设置页脚样式
 \newcommand{\footstyle}{\fancyfoot[C]{\huawenzhongsong \zihao{5} \thepage}
 	\fancyfoot[L]{\rule[5pt]{\HGR@footlinelength}{0.4pt}}
 	\fancyfoot[R]{\rule[5pt]{\HGR@footlinelength}{0.4pt}}
 }
 \pagestyle{fancy}
-\fancyhf{} %清空原有样式
+\fancyhf{}	% 清空原有样式
 \headstyle
 \footstyle
 
-%定义一种新的格式叫做main
-\fancypagestyle{main}{%
-	\fancyhf{} %清空原有样式
+% 定义一种新的格式叫做 main
+\fancypagestyle{main}{
+	\fancyhf{}	% 清空原有样式
 	\headstyle
 	\footstyle
 }
 
 
 %
-%	---	定义标题和段落样式
+% 定义标题和段落样式
 %
-%定义1.5倍行距
+% 定义 1.5 倍行距
 \renewcommand{\baselinestretch}{1.62}
 
-%设置各个标题样式
-%不需要使用part和chapter层级
-\ctexset{section={format={\centering \heiti \bfseries \zihao{-2}}}} %节
-\newcommand{\sectionbreak}{\clearpage} %小节从新的一页开始
-\ctexset{subsection={format={\raggedright \heiti \bfseries \zihao{4}}}} %小节
-\ctexset{subsubsection={format={\raggedright \heiti \bfseries \zihao{-4}}}} %小小节
-\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
-	{0ex \@plus1ex \@minus.2ex}%
-	{1em}%
+% 设置各个标题样式
+% 不需要使用 part 和 chapter 层级
+\ctexset{section={format={\centering \heiti \bfseries \zihao{-2}}}}	% 节
+\newcommand{\sectionbreak}{\clearpage}	% 小节从新的一页开始
+\ctexset{subsection={format={\raggedright \heiti \bfseries \zihao{4}}}}	% 小节
+\ctexset{subsubsection={format={\raggedright \heiti \bfseries \zihao{-4}}}}	% 小小节
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}
+	{0ex \@plus1ex \@minus.2ex}
+	{1em}
 	{\normalfont\normalsize\bfseries}}
-\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
-	{0ex \@plus1ex \@minus .2ex}%
-	{1em}%
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}
+	{0ex \@plus1ex \@minus .2ex}
+	{1em}
 	{\normalfont\normalsize\bfseries}}
 
 \RequirePackage[indentafter]{titlesec}
-%设置新的标题层级subsubsubsection
+% 设置新的标题层级 subsubsubsection
 \titleclass{\subsubsubsection}{straight}[\subsubsection]
-%设置编号
+% 设置编号
 \newcounter{subsubsubsection}[subsubsection]
 \renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
-%设置标题样式
+% 设置标题样式
 \titleformat{\subsubsubsection}{\raggedright \heiti \bfseries \zihao{-4}}{\thesubsubsubsection}{1em}{}[]
 \titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-%设置目录样式
+% 设置目录样式
 \RequirePackage{tocloft}
-%重新设置目录等级，支持hyperref宏包
+% 重新设置目录等级，支持 hyperref 宏包
 \RequirePackage{hyperref}
 \def\toclevel@subsubsubsection{4}
 \def\toclevel@paragraph{5}
 \def\toclevel@subparagraph{6}
-%参考tocloft，定义\l@subsubsubsection
-\newcommand{\l@subsubsubsection}[2]{%
+% 参考 tocloft，定义 \l@subsubsubsection
+\newcommand{\l@subsubsubsection}[2]{
 	\ifnum \c@tocdepth > 3 \relax
 	\vskip \cftbeforesubsubsubsecskip
 	{\leftskip \cftsubsubsubsecindent\relax
@@ -227,12 +227,12 @@
 \newcommand{\cftsubsubsubsecdotsep}{\cftdotsep}
 \newcommand{\cftsubsubsubsecpagefont}{\normalfont}
 \newcommand{\cftsubsubsubsecafterpnum}{}
-\newcommand{\cftsubsubsubsecfillnum}[1]{%
+\newcommand{\cftsubsubsubsecfillnum}[1]{
 	{\cftsubsubsubsecleader}\nobreak
 		\makebox[\@pnumwidth][\cftpnumalign]{\cftsubsubsubsecpagefont #1}\cftsubsubsubsecafterpnum\par
 	}
-%重写tocloft相关定义，解决tocloft中无法修改目录等级的问题
-\renewcommand*{\l@paragraph}[2]{%
+% 重写 tocloft 相关定义，解决 tocloft 中无法修改目录等级的问题
+\renewcommand*{\l@paragraph}[2]{
 	\ifnum \c@tocdepth > 4 \relax
 	\vskip \cftbeforeparaskip
 	{\leftskip \cftparaindent\relax
@@ -247,9 +247,9 @@
 		\let\@cftasnumb \cftparaaftersnumb
 		\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
 		{\cftparafont #1}\nobreak
-		\cftparafillnum{#2}}%
+		\cftparafillnum{#2}}
 	\fi}
-\renewcommand*{\l@subparagraph}[2]{%
+\renewcommand*{\l@subparagraph}[2]{
 	\ifnum \c@tocdepth > 5 \relax
 	\vskip \cftbeforesubparaskip
 	{\leftskip \cftsubparaindent\relax
@@ -264,59 +264,59 @@
 		\let\@cftasnumb \cftsubparaaftersnumb
 		\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
 		{\cftsubparafont #1}\nobreak
-		\cftsubparafillnum{#2}}%
+		\cftsubparafillnum{#2}}
 	\fi}
-%重新设置缩进
+% 重新设置缩进
 \setlength{\cftparaindent}{11em}
 \setlength{\cftparanumwidth}{5em}
 \setlength{\cftsubparaindent}{13em}
 \setlength{\cftsubparanumwidth}{6em}
-%设置目录深度
+% 设置目录深度
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
-%设置附录
+% 设置附录
 \RequirePackage[title,titletoc]{appendix}
 \renewcommand{\appendixname}{附录}
 
-%设置标题的引用
-\def\sectionautorefname~#1\null{%
+% 设置标题的引用
+\def\sectionautorefname~#1\null{
 	第~#1~节\null
 }
-\def\subsectionautorefname~#1\null{%
+\def\subsectionautorefname~#1\null{
 	第~#1~小节\null
 }
-\def\subsubsectionautorefname~#1\null{%
+\def\subsubsectionautorefname~#1\null{
 	第~#1~小节\null
 }
-\def\subsubsubsectionautorefname~#1\null{%
+\def\subsubsubsectionautorefname~#1\null{
 	第~#1~小节\null
 }
-\def\paragraphautorefname~#1\null{%
+\def\paragraphautorefname~#1\null{
 	段落~#1~\null
 }
-\def\subparagraphautorefname~#1\null{%
+\def\subparagraphautorefname~#1\null{
 	段落~#1~\null
 }
 
 
 %
-%	---	设置脚注格式
+% 设置脚注格式
 %
-%脚注每页重新计数
+% 脚注每页重新计数
 \@addtoreset{footnote}{page}
 
 
 %
-%	---	设置图表格式
+% 设置图表格式
 %
-%设置图表标题的计数方式
+% 设置图表标题的计数方式
 \renewcommand{\thefigure}{\ifnum \c@section>\z@ \thesection-\fi \@arabic\c@figure}
 \renewcommand{\thetable}{\ifnum \c@section>\z@ \thesection-\fi \@arabic\c@table}
 \@addtoreset{figure}{section}
 \@addtoreset{table}{section}
 
-%设置标题的样式
+% 设置标题的样式
 \RequirePackage{caption}
 \DeclareCaptionFont{hust}{\normalsize \heiti}
 \captionsetup{labelsep=quad}
@@ -329,26 +329,26 @@
 \setlength{\abovecaptionskip}{0pt}
 \setlength{\belowcaptionskip}{0pt}
 
-%重新设置图表autoref
-%\newcommand{\figureautorefname}{图}
-\def\figureautorefname~#1\null{%
+% 重新设置图表 autoref
+% \newcommand{\figureautorefname}{图}
+\def\figureautorefname~#1\null{
 	图~#1~\null
 }
-%\newcommand{\tableautorefname}{表}
-\def\tableautorefname~#1\null{%
+% \newcommand{\tableautorefname}{表}
+\def\tableautorefname~#1\null{
 	表~#1~\null
 }
 
-%使用tabularx库并定义新的左右中格式
+% 使用 tabularx 库并定义新的左右中格式
 \RequirePackage{tabularx}
 \RequirePackage{makecell}
 \newcolumntype{L}{X}
 \newcolumntype{C}{>{\centering \arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft \arraybackslash}X}
 
-%添加复杂的表格需求库
+% 添加复杂的表格需求库
 \RequirePackage{booktabs}
-%设置三线表格式
+% 设置三线表格式
 \setlength{\heavyrulewidth}{1.5pt}
 \setlength{\lightrulewidth}{0.5pt}
 \setlength{\cmidrulewidth}{0.5pt}
@@ -357,10 +357,10 @@
 \setlength{\abovetopsep}{0pt}
 \setlength{\belowbottomsep}{0pt}
 
-%添加图需要的库
+% 添加图需要的库
 \RequirePackage{graphicx}
 
-%重新定义图和表的浮动环境，使其方便使用
+% 重新定义图和表的浮动环境，使其方便使用
 \newenvironment{generalfig}[3][htbp]{
 	\def \figcaption {#2}
 	\def \figlabel {#3}
@@ -383,31 +383,31 @@
 
 
 %
-%	---	设置公式格式
+% 设置公式格式
 %
-%使用ams的数学库
+% 使用ams的数学库
 \RequirePackage{amsmath}
 
-%设置公式间距为零
+% 设置公式间距为零
 \AtBeginDocument{
 	\setlength{\abovedisplayskip}{6pt}
 	\setlength{\belowdisplayskip}{6pt}
 	\setlength{\abovedisplayshortskip}{0pt}
-	\setlength{\belowdisplayshortskip}{0pt} 
+	\setlength{\belowdisplayshortskip}{0pt}
 }
 
-%公式编号带章节
+% 公式编号带章节
 \numberwithin{equation}{section}
 
-%重新设置公式autoref
-%\newcommand{\equationautorefname}{等式}
-\def\equationautorefname~#1\null{%
+% 重新设置公式 autoref
+% \newcommand{\equationautorefname}{等式}
+\def\equationautorefname~#1\null{
 	式~(#1)~\null
 }
 
 
 %
-%	---	定义列表项的样式
+% 定义列表项的样式
 %
 \RequirePackage{enumitem}
 \setlist{noitemsep}
