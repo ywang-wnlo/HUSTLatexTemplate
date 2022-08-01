@@ -414,11 +414,11 @@
 
 
 %
-%	---	定义新的标题页面
+% 定义新的标题页面
 %
-%用于解析参数
+% 用于解析参数
 \RequirePackage{kvsetkeys}
-%添加几个新的文档属性
+% 添加几个新的文档属性
 \def \@school {}
 \def \@classnum {}
 \def \@stunum {}
@@ -428,15 +428,9 @@
 \newcommand{\stunum}[1]{\def \@stunum {#1}}
 \newcommand{\instructor}[1]{\def \@instructor {#1}}
 
-%设置maketitle的参数解析
+% 设置 maketitle 的参数解析
 \newcommand{\arg@maketitle}[2]{
 	\IfStrEqCase{#1}{
-		{logo color}{
-			\IfStrEqCase{#2}{
-				{green}{\def\HGR@titlecolor{HUSTGreen.eps}}
-				{black}{\def\HGR@titlecolor{HUSTBlack.eps}}
-			}[\ClassWarning{\HGR@name}{There's no such value for #1 (maketitle)}]
-		}
 		{line length}{\def\HGR@titlelength{#2}}
 		{line font}{
 			\IfStrEqCase{#2}{
@@ -460,7 +454,7 @@
 }
 %重置命令maketitle
 \renewcommand{\maketitle}[1][12em]{
-	\def\HGR@titlecolor{HUSTGreen.eps}
+	\def\HGR@titlecolor{HUSTBlack.eps}
 	\def\HGR@titlelength{12em}
 	\def\HGR@titlelinefont{}
 	\maketitlearg{#1}
