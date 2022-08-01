@@ -623,19 +623,6 @@
 }
 
 %
-%	---	定义新的致谢环境
-%
-\newenvironment{thankpage}{
-	\clearpage
-	\phantomsection
-	\addcontentsline{toc}{section}{致谢}
-	\section*{致谢}
-}{
-	\clearpage
-}
-
-
-%
 %	---	重新定义参考文献页
 %
 %设置参考文献
