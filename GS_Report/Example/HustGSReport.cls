@@ -1,20 +1,20 @@
 %
-%	HustGraduPaper.sty
-%	本文件是华中科技大学本科生毕业论文模板
-%	@author skinaze
-% 	@date 2019/03/10
-%	@version v2.1.9
+%	HustGSReport.cls
+%	本文件是华中科技大学 研究生/博士生 开题/中期/年度考核 报告模板
+%	@author ywang_wnlo
+%	@date 2022/08/01
+%	@version v1.0.0
 %
-%	本模板遵循MIT License
+%	本模板遵循 MIT License
 %
 
 
-%	---	定义的新的类
-\def\HGP@name{HustGraduPaper}
-\def\HGP@date{2019/03/10}
-\def\HGP@version{v2.1.9}
-\def\HGP@introduction{Provide HUST graduation thesis template}
-\ProvidesClass{\HGP@name}[\HGP@date~\HGP@version~\HGP@introduction]
+% 定义的新的类
+\def\HGR@name{HustGSReport}
+\def\HGR@date{2022/08/01}
+\def\HGR@version{v1.0.0}
+\def\HGR@introduction{Provide HUST graduate student report template}
+\ProvidesClass{\HGR@name}[\HGR@date~\HGR@version~\HGR@introduction]
 \NeedsTeXFormat{LaTeX2e}
 
 
@@ -23,35 +23,35 @@
 %
 \RequirePackage{xstring}%使用条件语句
 %字体组
-\def\HGP@fontset{}
-\def\HGP@noto{}
+\def\HGR@fontset{}
+\def\HGR@noto{}
 \DeclareOption{autofont}{}%自动设置字体
 \DeclareOption{adobefont} {
-	\def\HGP@fontset{,fontset=adobe}
+	\def\HGR@fontset{,fontset=adobe}
 }%使用Adobe 公司的四款中文字体
 \DeclareOption{fandolfont} {
-	\def\HGP@fontset{,fontset=fandol}
+	\def\HGR@fontset{,fontset=fandol}
 }%使用Fandol 中文字体
 \DeclareOption{founderfont} {
-	\def\HGP@fontset{,fontset=founder}
+	\def\HGR@fontset{,fontset=founder}
 }%使用方正公司的中文字体
 \DeclareOption{macfont} {
-	\def\HGP@fontset{,fontset=mac}
+	\def\HGR@fontset{,fontset=mac}
 }%使用Mac OS X 系统下的华文字体
 \DeclareOption{ubuntufont} {
-	\def\HGP@fontset{,fontset=ubuntu}
+	\def\HGR@fontset{,fontset=ubuntu}
 }%使用Ubuntu 系统下的文泉驿和文鼎字体
 \DeclareOption{winfont} {
-	\def\HGP@fontset{,fontset=windows}
+	\def\HGR@fontset{,fontset=windows}
 }%使用简体中文Windows 系统下的中文字体
 \DeclareOption{winnewfont} {
-	\def\HGP@fontset{,fontset=windowsnew}
+	\def\HGR@fontset{,fontset=windowsnew}
 }%使用简体中文Windows Vista或之后系统下的中易字体和微软雅黑字体
 \DeclareOption{winoldfont} {
-	\def\HGP@fontset{,fontset=windowsold}
+	\def\HGR@fontset{,fontset=windowsold}
 }%使用简体中文Windows XP或之前系统下的中易字体
 \DeclareOption{notofont} {
-	\def\HGP@noto{
+	\def\HGR@noto{
 		\setCJKmainfont{NotoSerifCJKsc-Regular.otf}[
 			BoldFont = NotoSerifCJKsc-Bold.otf,
 			AutoFakeBold = false
@@ -73,23 +73,23 @@
 			AutoFakeBold = false
 		]
 	}
-	\def\HGP@fontset{}
+	\def\HGR@fontset{}
 }%使用思源宋体和思源黑体
 \DeclareOption{nofont} {
-	\def\HGP@fontset{,fontset=none}
+	\def\HGR@fontset{,fontset=none}
 }%不配置中文字体，需要用户自己配置
 %页脚样式
-\def\HGP@footlinelength{6.7cm}
-\DeclareOption{footline}{\def\HGP@footlinelength{6.7cm}}%有页脚线
-\DeclareOption{nofootline}{\def\HGP@footlinelength{0cm}}%无页脚线
+\def\HGR@footlinelength{6.7cm}
+\DeclareOption{footline}{\def\HGR@footlinelength{6.7cm}}%有页脚线
+\DeclareOption{nofootline}{\def\HGR@footlinelength{0cm}}%无页脚线
 %引用样式
-\def\HGP@citestyle{normal}
-\DeclareOption{normalcite}{\def\HGP@citestyle{normal}}%使用正文式引用样式
-\DeclareOption{supercite}{\def\HGP@citestyle{super}}%使用上标型引用样式
-\def\HGP@citebst{gbt7714-2005}
-\DeclareOption{gbtcite}{\def\HGP@citebst{gbt7714-2005}}%使用GBT7714-2005样式
-\DeclareOption{gbt15cite}{\def\HGP@citebst{gbt7714-2015}}%使用GBT7714-2015样式
-\DeclareOption{tsinghuacite}{\def\HGP@citebst{thuthesis}}%使用清华样式
+\def\HGR@citestyle{normal}
+\DeclareOption{normalcite}{\def\HGR@citestyle{normal}}%使用正文式引用样式
+\DeclareOption{supercite}{\def\HGR@citestyle{super}}%使用上标型引用样式
+\def\HGR@citebst{gbt7714-2005}
+\DeclareOption{gbtcite}{\def\HGR@citebst{gbt7714-2005}}%使用GBT7714-2005样式
+\DeclareOption{gbt15cite}{\def\HGR@citebst{gbt7714-2015}}%使用GBT7714-2015样式
+\DeclareOption{tsinghuacite}{\def\HGR@citebst{thuthesis}}%使用清华样式
 %查重协助（临时功能）
 \DeclareOption{chachong}{\AtBeginDocument{\chachong}}%使用查重协助
 \ProcessOptions
@@ -103,7 +103,7 @@
 \LoadClass[a4paper]{article}
 %页面基本设置
 \RequirePackage[AutoFakeBold=true,AutoFakeSlant=true]{xeCJK}[2017/08/08]
-\RequirePackage[zihao=-4,UTF8,heading=true\HGP@fontset]{ctex}[2016/12/27]
+\RequirePackage[zihao=-4,UTF8,heading=true\HGR@fontset]{ctex}[2016/12/27]
 
 %
 %	---	定义页边距
@@ -128,7 +128,7 @@
 	BoldFeatures={FakeBold=4}
 ]
 %思源字体定义与使用
-\HGP@noto
+\HGR@noto
 
 %
 %	---	定义页眉页脚
@@ -141,8 +141,8 @@
 }
 %设置页脚样式
 \newcommand{\footstyle}{\fancyfoot[C]{\huawenzhongsong \zihao{5} \thepage}
-	\fancyfoot[L]{\rule[5pt]{\HGP@footlinelength}{0.4pt}}
-	\fancyfoot[R]{\rule[5pt]{\HGP@footlinelength}{0.4pt}}
+	\fancyfoot[L]{\rule[5pt]{\HGR@footlinelength}{0.4pt}}
+	\fancyfoot[R]{\rule[5pt]{\HGR@footlinelength}{0.4pt}}
 }
 \pagestyle{fancy}
 \fancyhf{} %清空原有样式
@@ -432,41 +432,41 @@
 	\IfStrEqCase{#1}{
 		{logo color}{
 			\IfStrEqCase{#2}{
-				{green}{\def\HGP@titlecolor{HUSTGreen.eps}}
-				{black}{\def\HGP@titlecolor{HUSTBlack.eps}}
-			}[\ClassWarning{\HGP@name}{There's no such value for #1 (maketitle)}]
+				{green}{\def\HGR@titlecolor{HUSTGreen.eps}}
+				{black}{\def\HGR@titlecolor{HUSTBlack.eps}}
+			}[\ClassWarning{\HGR@name}{There's no such value for #1 (maketitle)}]
 		}
-		{line length}{\def\HGP@titlelength{#2}}
+		{line length}{\def\HGR@titlelength{#2}}
 		{line font}{
 			\IfStrEqCase{#2}{
-				{huawenzhongsong}{\def\HGP@titlelinefont{\huawenzhongsong}}
-				{songti}{\def\HGP@titlelinefont{\songti}}
-				{heiti}{\def\HGP@titlelinefont{\heiti}}
-				{fangsong}{\def\HGP@titlelinefont{\fangsong}}
-				{kaishu}{\def\HGP@titlelinefont{\kaishu}}
-				{lishu}{\def\HGP@titlelinefont{\lishu}}
-				{youyuan}{\def\HGP@titlelinefont{\youyuan}}
-			}[\ClassWarning{\HGP@name}{There's no such value for #1 (maketitle)}]
+				{huawenzhongsong}{\def\HGR@titlelinefont{\huawenzhongsong}}
+				{songti}{\def\HGR@titlelinefont{\songti}}
+				{heiti}{\def\HGR@titlelinefont{\heiti}}
+				{fangsong}{\def\HGR@titlelinefont{\fangsong}}
+				{kaishu}{\def\HGR@titlelinefont{\kaishu}}
+				{lishu}{\def\HGR@titlelinefont{\lishu}}
+				{youyuan}{\def\HGR@titlelinefont{\youyuan}}
+			}[\ClassWarning{\HGR@name}{There's no such value for #1 (maketitle)}]
 		}
-	}[\ClassWarning{\HGP@name}{There's no such argument for maketitle}]
+	}[\ClassWarning{\HGR@name}{There's no such argument for maketitle}]
 }
 \newcommand{\maketitlearg}[1]{
 	\IfSubStr{#1}{=}{
 		\kv@parse{#1}{\arg@maketitle}
 	}{
-		\def\HGP@titlelength{#1}
+		\def\HGR@titlelength{#1}
 	}
 }
 %重置命令maketitle
 \renewcommand{\maketitle}[1][12em]{
-	\def\HGP@titlecolor{HUSTGreen.eps}
-	\def\HGP@titlelength{12em}
-	\def\HGP@titlelinefont{}
+	\def\HGR@titlecolor{HUSTGreen.eps}
+	\def\HGR@titlelength{12em}
+	\def\HGR@titlelinefont{}
 	\maketitlearg{#1}
 	\begin{titlepage}
 		\begin{center}
 			\vspace*{4em}
-			\includegraphics[height=1.61cm]{\HGP@titlecolor}\\
+			\includegraphics[height=1.61cm]{\HGR@titlecolor}\\
 			\vspace*{2em}
 			{\zihao{-0} \huawenzhongsong \bfseries 本科生毕业设计\makebox{\hwzsAll\bfseries [}论文\makebox{\hwzsAll\bfseries ]}}\\
 			\vspace{6em}
@@ -476,15 +476,15 @@
 				\renewcommand\arraystretch{1.5}
 				\begin{tabular}{lc}
 					\makebox[4em][s]{院 \hfill 系} &
-					\underline{\makebox[\HGP@titlelength]{\HGP@titlelinefont\@school}} \\
+					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@school}} \\
 					\makebox[4em][s]{专业班级} &
-					\underline{\makebox[\HGP@titlelength]{\HGP@titlelinefont\@classnum}} \\
+					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@classnum}} \\
 					\makebox[4em][s]{姓 \hfill 名} &
-					\underline{\makebox[\HGP@titlelength]{\HGP@titlelinefont\@author}} \\
+					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@author}} \\
 					\makebox[4em][s]{学 \hfill 号} &
-					\underline{\makebox[\HGP@titlelength]{\HGP@titlelinefont\@stunum}} \\
+					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@stunum}} \\
 					\makebox[4em][s]{指导教师} &
-					\underline{\makebox[\HGP@titlelength]{\HGP@titlelinefont\@instructor}} \\
+					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@instructor}} \\
 			\end{tabular}}\\
 			\vspace{4em}
 			{\zihao{3} \huawenzhongsong \@date}\\
@@ -500,42 +500,42 @@
 \RequirePackage{amssymb}
 
 %设置statement的参数解析
-\def\HGP@checkedbox{$\text{\rlap{\checkmark}}\square$}
-\def\HGP@box{$\square$}
+\def\HGR@checkedbox{$\text{\rlap{\checkmark}}\square$}
+\def\HGR@box{$\square$}
 \newcommand{\arg@statement}[2]{
 	\IfStrEqCase{#1}{
 		{confidentiality}{
 			\IfStrEqCase{#2}{
 				{yes}{
-					\def\HGP@confidential{\HGP@checkedbox}
-					\def\HGP@notconfidential{\HGP@box}
+					\def\HGR@confidential{\HGR@checkedbox}
+					\def\HGR@notconfidential{\HGR@box}
 				}
 				{true}{
-					\def\HGP@confidential{\HGP@checkedbox}
-					\def\HGP@notconfidential{\HGP@box}
+					\def\HGR@confidential{\HGR@checkedbox}
+					\def\HGR@notconfidential{\HGR@box}
 				}
 				{no}{
-					\def\HGP@confidential{\HGP@box}
-					\def\HGP@notconfidential{\HGP@checkedbox}
+					\def\HGR@confidential{\HGR@box}
+					\def\HGR@notconfidential{\HGR@checkedbox}
 				}
 				{false}{
-					\def\HGP@confidential{\HGP@box}
-					\def\HGP@notconfidential{\HGP@checkedbox}
+					\def\HGR@confidential{\HGR@box}
+					\def\HGR@notconfidential{\HGR@checkedbox}
 				}
 				{empty}{
-					\def\HGP@confidential{\HGP@box}
-					\def\HGP@notconfidential{\HGP@box}
+					\def\HGR@confidential{\HGR@box}
+					\def\HGR@notconfidential{\HGR@box}
 				}
-			}[\ClassWarning{\HGP@name}{There's no such value for #1 (statement)}]
+			}[\ClassWarning{\HGR@name}{There's no such value for #1 (statement)}]
 		}
-		{year}{\def\HGP@yearofconfidentiality{#2}}
-	}[\ClassWarning{\HGP@name}{There's no such argument for statement}]
+		{year}{\def\HGR@yearofconfidentiality{#2}}
+	}[\ClassWarning{\HGR@name}{There's no such argument for statement}]
 }
 %设置命令
 \newcommand{\statement}[1][confidentiality=empty]{
-	\def\HGP@confidential{\HGP@box}
-	\def\HGP@notconfidential{\HGP@checkedbox}
-	\def\HGP@yearofconfidentiality{}
+	\def\HGR@confidential{\HGR@box}
+	\def\HGR@notconfidential{\HGR@checkedbox}
+	\def\HGR@yearofconfidentiality{}
 	\kv@parse{#1}{\arg@statement}
 	\clearpage
 	\thispagestyle{empty}
@@ -558,9 +558,9 @@
 	本学位论文作者完全了解学校有关保障、使用学位论文的规定，同意学校保留并向有关学位论文管理部门或机构送交论文的复印件和电子版，允许论文被查阅和借阅。本人授权省级优秀学士论文评选机构将本学位论文的全部或部分内容编入有关数据进行检索，可以采用影印、缩印或扫描等复制手段保存和汇编本学位论文。
 	
 	\begin{tabbing}
-		\hspace{2em}本学位论文属于 \= 1、保密\hspace{1em} \=\HGP@confidential
-		，在\makebox[2em][c]{\HGP@yearofconfidentiality}年解密后适用本授权书。\\
-		\>2、不保密\>\HGP@notconfidential
+		\hspace{2em}本学位论文属于 \= 1、保密\hspace{1em} \=\HGR@confidential
+		，在\makebox[2em][c]{\HGR@yearofconfidentiality}年解密后适用本授权书。\\
+		\>2、不保密\>\HGR@notconfidential
 		。\\
 		\>（请在以上相应方框内打“$\checkmark$”）
 	\end{tabbing}
@@ -631,25 +631,25 @@
 	\IfStrEqCase{#1}{
 		{pagenum}{
 			\IfStrEqCase{#2}{
-				{yes}{\def\HGP@plainfooterstyle{\footstyle}}
-				{true}{\def\HGP@plainfooterstyle{\footstyle}}
-				{no}{\def\HGP@plainfooterstyle{}}
-				{false}{\def\HGP@plainfooterstyle{}}
-			}[\ClassWarning{\HGP@name}{There's no such value for #1 (tableofcontents)}]
+				{yes}{\def\HGR@plainfooterstyle{\footstyle}}
+				{true}{\def\HGR@plainfooterstyle{\footstyle}}
+				{no}{\def\HGR@plainfooterstyle{}}
+				{false}{\def\HGR@plainfooterstyle{}}
+			}[\ClassWarning{\HGR@name}{There's no such value for #1 (tableofcontents)}]
 		}
 		{toc in toc}{
 			\IfStrEqCase{#2}{
-				{yes}{\def\HGP@addtoctotoc{
+				{yes}{\def\HGR@addtoctotoc{
 					\phantomsection
 					\addcontentsline{toc}{section}{目录}
 				}}
-				{true}{\def\HGP@addtoctotoc{
+				{true}{\def\HGR@addtoctotoc{
 					\phantomsection
 					\addcontentsline{toc}{section}{目录}
 				}}
-				{no}{\def\HGP@addtoctotoc{}}
-				{false}{\def\HGP@addtoctotoc{}}
-			}[\ClassWarning{\HGP@name}{There's no such value for #1 (tableofcontents)}]
+				{no}{\def\HGR@addtoctotoc{}}
+				{false}{\def\HGR@addtoctotoc{}}
+			}[\ClassWarning{\HGR@name}{There's no such value for #1 (tableofcontents)}]
 		}
 		{level}{\setcounter{tocdepth}{#2}}
 		{section indent}{\renewcommand{\cftsecindent}{#2}}
@@ -698,7 +698,7 @@
 					\renewcommand{\cftparaindent}{1.5em}
 					\renewcommand{\cftsubparaindent}{1.5em}
 				}
-			}[\ClassWarning{\HGP@name}{There's no such value for #1 (tableofcontents)}]
+			}[\ClassWarning{\HGR@name}{There's no such value for #1 (tableofcontents)}]
 		}
 		{dot sep}{\renewcommand{\cftdotsep}{#2}}
 		{section dot sep}{\renewcommand{\cftsecdotsep}{#2}}
@@ -707,25 +707,25 @@
 		{subsubsubsection dot sep}{\renewcommand{\cftsubsubsubsecdotsep}{#2}}
 		{paragraph dot sep}{\renewcommand{\cftparadotsep}{#2}}
 		{subparagraph dot sep}{\renewcommand{\cftsubparadotsep}{#2}}
-	}[\ClassWarning{\HGP@name}{There's no such argument for tableofcontents}]
+	}[\ClassWarning{\HGR@name}{There's no such argument for tableofcontents}]
 }
 \AtBeginDocument{
 	%设置新的生成目录命令
 	\let \oldtableofcontents \tableofcontents
 	\renewcommand{\tableofcontents}[1][pagenum=false,toc in toc=false]{
-		\def\HGP@plainfooterstyle{}
-		\def\HGP@addtoctotoc{}
+		\def\HGR@plainfooterstyle{}
+		\def\HGR@addtoctotoc{}
 		\kv@parse{#1}{\arg@tableofcontents}
 		%修改hdr原plain格式
 		\fancypagestyle{plain}{%
 			\fancyhf{} %清空原有样式
 			\headstyle
-			\HGP@plainfooterstyle
+			\HGR@plainfooterstyle
 		}
 		%设置目录hdr和页码选项
 		\clearpage
 		\pagestyle{plain}
-		\HGP@addtoctotoc
+		\HGR@addtoctotoc
 		\oldtableofcontents
 		\clearpage
 		\pagestyle{main}
@@ -764,17 +764,17 @@
 \let \normalcite \cite
 \newcommand{\supercite}[2][]{
 	\unskip
-	\def\HGP@temp{#1}
-	\ifx\HGP@temp\empty{\unskip\textsuperscript{\normalcite{#2}}}
+	\def\HGR@temp{#1}
+	\ifx\HGR@temp\empty{\unskip\textsuperscript{\normalcite{#2}}}
 	\else{\unskip\textsuperscript{\normalcite[#1]{#2}}}\fi
 }
-\IfStrEqCase{\HGP@citestyle}{
+\IfStrEqCase{\HGR@citestyle}{
 	{normal}{}
 	{super}{\let \cite \supercite}
 }
 
 %设置参考文献样式
-\IfStrEqCase{\HGP@citebst}{
+\IfStrEqCase{\HGR@citebst}{
 	{gbt7714-2005}{\bibliographystyle{gbt7714-2005}}
 	{gbt7714-2015}{\bibliographystyle{gbt7714-2015}}
 	{thuthesis}{
@@ -808,8 +808,8 @@
 }
 
 %查重识别问题
-\def\HGP@Otherbold{}
-\newcommand{\Otherbold}[1]{\def\HGP@Otherbold{#1}}
+\def\HGR@Otherbold{}
+\newcommand{\Otherbold}[1]{\def\HGR@Otherbold{#1}}
 \newcommand{\chachong}{
 	\clearpage
 	
@@ -824,7 +824,7 @@
 	
 	{\heiti\zihao{1}\noindent 一直删除到这里！}
 	
-	\HGP@Otherbold
+	\HGR@Otherbold
 	
 	\clearpage
 }
