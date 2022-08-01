@@ -623,6 +623,29 @@
 }
 
 %
+% 定义新的签名页面
+%
+% 设置命令
+\newcommand{\signature}{
+	\clearpage
+	\thispagestyle{empty}
+	\vspace*{40em}
+	\rightline{\zihao{4} \huawenzhongsong
+	\renewcommand\arraystretch{1.2}
+	\begin{tabular}{rc}
+		\makebox[9em][s]{研究生签字} &
+		\underline{\makebox[9em]{}} \\
+		\makebox[9em][s]{指导教师签字} &
+		\underline{\makebox[9em]{}} \\
+		\makebox[9em][s]{院(系、所)领导签字} &
+		\underline{\makebox[9em]{}} \\
+	\end{tabular}}
+	\vspace{4em}
+	\rightline{\zihao{4} \songti \bfseries \makebox[9em][s]{年月日}}
+	\clearpage
+}
+
+%
 %	---	重新定义参考文献页
 %
 %设置参考文献
