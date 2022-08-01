@@ -1,6 +1,6 @@
 %
 %	HustGSReport.cls
-%	本文件是华中科技大学 研究生/博士生 开题/中期/年度考核 报告模板
+%	本文件是华中科技大学 研究生/博士生 开题/中期进展/年度考核 报告模板
 %	@author ywang_wnlo
 %	@date 2022/08/01
 %	@version v1.0.0
@@ -419,10 +419,12 @@
 % 用于解析参数
 \RequirePackage{kvsetkeys}
 % 添加几个新的文档属性
+\def \@report {}
 \def \@school {}
 \def \@classnum {}
 \def \@stunum {}
 \def \@instructor {}
+\newcommand{\report}[1]{\def \@report {#1}}
 \newcommand{\school}[1]{\def \@school {#1}}
 \newcommand{\classnum}[1]{\def \@classnum {#1}}
 \newcommand{\stunum}[1]{\def \@stunum {#1}}
@@ -452,7 +454,7 @@
 		\def\HGR@titlelength{#1}
 	}
 }
-%重置命令maketitle
+% 重置命令 maketitle
 \renewcommand{\maketitle}[1][12em]{
 	\def\HGR@titlecolor{HUSTBlack.eps}
 	\def\HGR@titlelength{12em}
@@ -463,26 +465,26 @@
 			\vspace*{4em}
 			\includegraphics[height=1.61cm]{\HGR@titlecolor}\\
 			\vspace*{2em}
-			{\zihao{-0} \huawenzhongsong \bfseries 本科生毕业设计\makebox{\hwzsAll\bfseries [}论文\makebox{\hwzsAll\bfseries ]}}\\
-			\vspace{6em}
-			{\zihao{2} \heiti \bfseries \@title}\\
-			\vspace{6em}
-			{\zihao{3} \huawenzhongsong 
-				\renewcommand\arraystretch{1.5}
-				\begin{tabular}{lc}
-					\makebox[4em][s]{院 \hfill 系} &
-					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@school}} \\
-					\makebox[4em][s]{专业班级} &
-					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@classnum}} \\
-					\makebox[4em][s]{姓 \hfill 名} &
-					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@author}} \\
-					\makebox[4em][s]{学 \hfill 号} &
-					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@stunum}} \\
-					\makebox[4em][s]{指导教师} &
-					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@instructor}} \\
-			\end{tabular}}\\
+			{\zihao{2} \heiti \bfseries \@report}\\
+			\vspace{3em}
+			{\zihao{4} \huawenzhongsong \bfseries \makebox[3em][s]{题 \hfill 目}：\@title}\\
 			\vspace{4em}
-			{\zihao{3} \huawenzhongsong \@date}\\
+			{\zihao{-3} \huawenzhongsong
+				\renewcommand\arraystretch{1.2}
+				\begin{tabular}{lc}
+					\makebox[7em][s]{学 \hfill 号} &
+					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@stunum}} \\
+					\makebox[7em][s]{姓 \hfill 名} &
+					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@author}} \\
+					\makebox[7em][s]{专 \hfill 业} &
+					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@classnum}} \\
+					\makebox[7em][s]{指 \hfill 导 \hfill 教 \hfill 师} &
+					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@instructor}} \\
+					\makebox[7em][s]{院（系、所）} &
+					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@school}} \\
+			\end{tabular}}\\
+			\vspace{14em}
+			{\zihao{-3} \huawenzhongsong 华中科技大学研究生院制}\\
 		\end{center}
 	\end{titlepage}
 }
@@ -796,7 +798,7 @@
 		pdfinfo={
 			Title={\@title},
 			Author={\@author},
-			Subject={华中科技大学本科生毕业论文}
+			Subject={\@report}
 		}
 	}
 }
