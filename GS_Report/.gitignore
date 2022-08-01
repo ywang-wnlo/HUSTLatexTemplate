@@ -1,0 +1,28 @@
+# TeX compile files
+*.log
+*.aux
+*.dvi
+*.gz
+*.out
+*.fls
+*.fdb_latexmk
+*.xdv
+
+# TOC files
+*.toc
+*.lof
+*.lot
+*.ilg
+*.ind
+
+# BIB files
+*.bbl
+*.blg
+*.bib.bak
+*.bib.sav
+
+# My test files
+Test/*
+
+# Old version files
+Version/*
