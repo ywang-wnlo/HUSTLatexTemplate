@@ -19,37 +19,37 @@
 
 
 %
-%	---	定义类的选项
+% 定义类的选项
 %
-\RequirePackage{xstring}%使用条件语句
-%字体组
+\RequirePackage{xstring}	% 使用条件语句
+% 字体组
 \def\HGR@fontset{}
 \def\HGR@noto{}
-\DeclareOption{autofont}{}%自动设置字体
+\DeclareOption{autofont}{}	% 自动设置字体
 \DeclareOption{adobefont} {
 	\def\HGR@fontset{,fontset=adobe}
-}%使用Adobe 公司的四款中文字体
+}	% 使用 Adobe 公司的四款中文字体
 \DeclareOption{fandolfont} {
 	\def\HGR@fontset{,fontset=fandol}
-}%使用Fandol 中文字体
+}	% 使用 Fandol 中文字体
 \DeclareOption{founderfont} {
 	\def\HGR@fontset{,fontset=founder}
-}%使用方正公司的中文字体
+}	% 使用方正公司的中文字体
 \DeclareOption{macfont} {
 	\def\HGR@fontset{,fontset=mac}
-}%使用Mac OS X 系统下的华文字体
+}	% 使用 Mac OS X 系统下的华文字体
 \DeclareOption{ubuntufont} {
 	\def\HGR@fontset{,fontset=ubuntu}
-}%使用Ubuntu 系统下的文泉驿和文鼎字体
+}	% 使用 Ubuntu 系统下的文泉驿和文鼎字体
 \DeclareOption{winfont} {
 	\def\HGR@fontset{,fontset=windows}
-}%使用简体中文Windows 系统下的中文字体
+}	% 使用简体中文 Windows 系统下的中文字体
 \DeclareOption{winnewfont} {
 	\def\HGR@fontset{,fontset=windowsnew}
-}%使用简体中文Windows Vista或之后系统下的中易字体和微软雅黑字体
+}	% 使用简体中文 Windows Vista 或之后系统下的中易字体和微软雅黑字体
 \DeclareOption{winoldfont} {
 	\def\HGR@fontset{,fontset=windowsold}
-}%使用简体中文Windows XP或之前系统下的中易字体
+}	% 使用简体中文 Windows XP 或之前系统下的中易字体
 \DeclareOption{notofont} {
 	\def\HGR@noto{
 		\setCJKmainfont{NotoSerifCJKsc-Regular.otf}[
@@ -74,24 +74,25 @@
 		]
 	}
 	\def\HGR@fontset{}
-}%使用思源宋体和思源黑体
+}	% 使用思源宋体和思源黑体
 \DeclareOption{nofont} {
 	\def\HGR@fontset{,fontset=none}
-}%不配置中文字体，需要用户自己配置
-%页脚样式
+}	% 不配置中文字体，需要用户自己配置
+
+% 页脚样式
 \def\HGR@footlinelength{6.7cm}
-\DeclareOption{footline}{\def\HGR@footlinelength{6.7cm}}%有页脚线
-\DeclareOption{nofootline}{\def\HGR@footlinelength{0cm}}%无页脚线
-%引用样式
+\DeclareOption{footline}{\def\HGR@footlinelength{6.7cm}}	% 有页脚线
+\DeclareOption{nofootline}{\def\HGR@footlinelength{0cm}}	% 无页脚线
+
+% 引用样式
 \def\HGR@citestyle{normal}
-\DeclareOption{normalcite}{\def\HGR@citestyle{normal}}%使用正文式引用样式
-\DeclareOption{supercite}{\def\HGR@citestyle{super}}%使用上标型引用样式
-\def\HGR@citebst{gbt7714-2005}
-\DeclareOption{gbtcite}{\def\HGR@citebst{gbt7714-2005}}%使用GBT7714-2005样式
-\DeclareOption{gbt15cite}{\def\HGR@citebst{gbt7714-2015}}%使用GBT7714-2015样式
-\DeclareOption{tsinghuacite}{\def\HGR@citebst{thuthesis}}%使用清华样式
-%查重协助（临时功能）
-\DeclareOption{chachong}{\AtBeginDocument{\chachong}}%使用查重协助
+\DeclareOption{normalcite}{\def\HGR@citestyle{normal}}	% 使用正文式引用样式
+\DeclareOption{supercite}{\def\HGR@citestyle{super}}	% 使用上标型引用样式
+\def\HGR@citebst{gbt7714-2015}
+\DeclareOption{gbt15cite}{\def\HGR@citebst{gbt7714-2015}}	% 使用 GBT7714-2015 样式
+\DeclareOption{tsinghuacite}{\def\HGR@citebst{thuthesis}}	% 使用清华样式
+% 查重协助（临时功能）
+\DeclareOption{chachong}{\AtBeginDocument{\chachong}}	% 使用查重协助
 \ProcessOptions
 \ExecuteOptions{autofont,normalcites,gbtcite}
 \relax
@@ -775,8 +776,7 @@
 
 %设置参考文献样式
 \IfStrEqCase{\HGR@citebst}{
-	{gbt7714-2005}{\bibliographystyle{gbt7714-2005}}
-	{gbt7714-2015}{\bibliographystyle{gbt7714-2015}}
+	{gbt7714-2015}{\bibliographystyle{gbt7714-numerical}}
 	{thuthesis}{
 		\bibliographystyle{thuthesis-numeric}
 		\def\thudot{\unskip.}
