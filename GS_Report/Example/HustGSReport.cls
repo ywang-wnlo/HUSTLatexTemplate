@@ -130,6 +130,9 @@
 ]
 % 思源字体定义与使用
 \HGR@noto
+% 正文使用宋体
+\setCJKfamilyfont{songti}{songti}
+
 
 %
 % 定义页眉页脚
@@ -138,10 +141,10 @@
 \RequirePackage{fancyhdr}
 % 设置页眉样式
 \newcommand{\headstyle}{
-	\fancyhead[C]{\huawenzhongsong \zihao{4} 华中科技大学研究生院}
+	\fancyhead[C]{\songti \bfseries \zihao{4} 华中科技大学研究生院}
 }
 % 设置页脚样式
-\newcommand{\footstyle}{\fancyfoot[C]{\huawenzhongsong \zihao{5} \thepage}
+\newcommand{\footstyle}{\fancyfoot[C]{\songti \zihao{5} \thepage}
 	\fancyfoot[L]{\rule[5pt]{\HGR@footlinelength}{0.4pt}}
 	\fancyfoot[R]{\rule[5pt]{\HGR@footlinelength}{0.4pt}}
 }
@@ -166,10 +169,10 @@
 
 % 设置各个标题样式
 % 不需要使用 part 和 chapter 层级
-\ctexset{section={format={\centering \heiti \bfseries \zihao{-2}}}}	% 节
+\ctexset{section={format={\centering \songti \bfseries \zihao{-2}}}}	% 节
 \newcommand{\sectionbreak}{\clearpage}	% 小节从新的一页开始
-\ctexset{subsection={format={\raggedright \heiti \bfseries \zihao{4}}}}	% 小节
-\ctexset{subsubsection={format={\raggedright \heiti \bfseries \zihao{-4}}}}	% 小小节
+\ctexset{subsection={format={\raggedright \songti \bfseries \zihao{4}}}}	% 小节
+\ctexset{subsubsection={format={\raggedright \songti \bfseries \zihao{-4}}}}	% 小小节
 \renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}
 	{0ex \@plus1ex \@minus.2ex}
 	{1em}
@@ -186,7 +189,7 @@
 \newcounter{subsubsubsection}[subsubsection]
 \renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
 % 设置标题样式
-\titleformat{\subsubsubsection}{\raggedright \heiti \bfseries \zihao{-4}}{\thesubsubsubsection}{1em}{}[]
+\titleformat{\subsubsubsection}{\raggedright \songti \bfseries \zihao{-4}}{\thesubsubsubsection}{1em}{}[]
 \titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 % 设置目录样式
 \RequirePackage{tocloft}
@@ -318,7 +321,7 @@
 
 % 设置标题的样式
 \RequirePackage{caption}
-\DeclareCaptionFont{hust}{\normalsize \heiti}
+\DeclareCaptionFont{hust}{\normalsize \songti}
 \captionsetup{labelsep=quad}
 \captionsetup{font={hust,singlespacing}}
 \captionsetup[figure]{position=bottom,skip={0pt}}
@@ -469,7 +472,7 @@
 			\vspace{3em}
 			{\zihao{4} \huawenzhongsong \bfseries \makebox[3em][s]{题 \hfill 目}：\@title}\\
 			\vspace{4em}
-			{\zihao{-3} \huawenzhongsong
+			{\zihao{-3} \songti
 				\renewcommand\arraystretch{1.2}
 				\begin{tabular}{lc}
 					\makebox[7em][s]{学 \hfill 号} &
@@ -484,7 +487,7 @@
 					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@school}} \\
 			\end{tabular}}\\
 			\vspace{14em}
-			{\zihao{-3} \huawenzhongsong 华中科技大学研究生院制}\\
+			{\zihao{-3} \songti 华中科技大学研究生院制}\\
 		\end{center}
 	\end{titlepage}
 }
@@ -498,7 +501,7 @@
 	%linkcolor  = black,
 	pdfborder = 000,%去掉链接红框
 	pdfstartview=FitH%打开页面以窗口宽度显示
-} 
+}
 \renewcommand{\cfttoctitlefont}{\hfill \heiti \zihao{-2} \bfseries}
 \renewcommand{\contentsname}{目\hspace{2em}录}
 \renewcommand{\cftaftertoctitle}{\hfill}
