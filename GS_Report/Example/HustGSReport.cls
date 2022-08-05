@@ -91,8 +91,6 @@
 \def\HGR@citebst{gbt7714-2015}
 \DeclareOption{gbt15cite}{\def\HGR@citebst{gbt7714-2015}}	% 使用 GBT7714-2015 样式
 \DeclareOption{tsinghuacite}{\def\HGR@citebst{thuthesis}}	% 使用清华样式
-% 查重协助（临时功能）
-\DeclareOption{chachong}{\AtBeginDocument{\chachong}}	% 使用查重协助
 \ProcessOptions
 \ExecuteOptions{autofont,normalcites,gbtcite}
 \relax
@@ -701,27 +699,4 @@
 		}
 	}
 }
-
-%查重识别问题
-\def\HGR@Otherbold{}
-\newcommand{\Otherbold}[1]{\def\HGR@Otherbold{#1}}
-\newcommand{\chachong}{
-	\clearpage
-	
-	{\heiti\zihao{1}\noindent 这部分用于支持加粗的复制，便于查重。请从这里开始删除！}
-	
-	{\huawenzhongsong 华中科技大学毕业设计（论文）}
-	{\huawenzhongsong 本科生毕业设计[论文]}
-	{\heiti \@title 院系 专业班级 姓名 学号 指导教师}
-	{\heiti \@school \@classnum \@author \@stunum \@instructor}
-	{\heiti 学位论文原创性声明 学位论文版权使用授权书 摘要 关键词 目录 致谢 参考文献 附录}
-	{\songti 宋体}
-	
-	{\heiti\zihao{1}\noindent 一直删除到这里！}
-	
-	\HGR@Otherbold
-	
-	\clearpage
-}
-
 
