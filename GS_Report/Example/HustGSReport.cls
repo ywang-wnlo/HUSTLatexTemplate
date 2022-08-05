@@ -470,7 +470,7 @@
 			\vspace{3em}
 			{\zihao{4} \huawenzhongsong \bfseries \makebox[3em][s]{题 \hfill 目}：\@title}\\
 			\vspace{4em}
-			{\zihao{-3} \songti
+			{\zihao{-3} \songti \bfseries
 				\renewcommand\arraystretch{1.2}
 				\begin{tabular}{lc}
 					\makebox[7em][s]{学 \hfill 号} &
@@ -485,7 +485,7 @@
 					\underline{\makebox[\HGR@titlelength]{\HGR@titlelinefont\@school}} \\
 			\end{tabular}}\\
 			\vspace{14em}
-			{\zihao{-3} \songti 华中科技大学研究生院制}\\
+			{\zihao{-3} \songti \bfseries 华中科技大学研究生院制}\\
 		\end{center}
 	\end{titlepage}
 }
